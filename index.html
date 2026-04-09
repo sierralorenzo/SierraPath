@@ -1,0 +1,230 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sierra Path</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-badge">S</div>
+        <div>
+          <h1>Sierra Path</h1>
+          <p>Find your path. Build your future.</p>
+        </div>
+      </div>
+      <button id="homeBtn" class="ghost-btn hidden">Back to Home</button>
+    </header>
+
+    <main>
+      <!-- LANDING -->
+      <section id="landingSection" class="page active">
+        <div class="hero-card">
+          <div class="pill">AI-inspired opportunity matching — zero cost MVP</div>
+          <h2>Find your path. <span>Build your future.</span></h2>
+          <p class="hero-text">
+            Sierra Path matches your interests, strengths, goals, and experiences
+            to internships, organizations, projects, and a personalized roadmap.
+          </p>
+
+          <div class="hero-actions">
+            <button id="startBtn" class="primary-btn">Start your career report</button>
+            <button id="howItWorksBtn" class="secondary-btn">How it works</button>
+          </div>
+
+          <div class="hero-stats">
+            <div><strong>5 min</strong><span>to complete</span></div>
+            <div><strong>100%</strong><span>free</span></div>
+            <div><strong>4</strong><span>report sections</span></div>
+          </div>
+        </div>
+
+        <div id="howItWorksCard" class="info-card hidden">
+          <h3>How it works</h3>
+          <ol>
+            <li>Answer a short profile form.</li>
+            <li>Get matched to internships, organizations, and projects.</li>
+            <li>Receive a clear roadmap for your next moves.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <section id="formSection" class="page hidden">
+        <div class="form-card">
+          <div class="progress-top">
+            <div class="progress-label">
+              <span id="stepLabel">Step 1 of 6</span>
+              <span id="stepTitle">Basic Info</span>
+            </div>
+            <div class="progress-bar">
+              <div id="progressFill"></div>
+            </div>
+          </div>
+
+          <form id="careerForm">
+            <!-- Step 1 -->
+            <div class="form-step active" data-step="1">
+              <h3>Basic Info</h3>
+              <p class="step-subtext">Let’s start with the basics.</p>
+
+              <label>What’s your name? <span class="optional">(optional)</span></label>
+              <input type="text" id="name" placeholder="e.g., Lorenzo" />
+
+              <label>What course/field are you in?</label>
+              <input type="text" id="course" placeholder="e.g., BS Management" required />
+
+              <label>What year level are you?</label>
+              <input type="text" id="yearLevel" placeholder="e.g., 2nd Year" required />
+
+              <label>Where are you currently based?</label>
+              <input type="text" id="location" placeholder="e.g., Quezon City / Manila / Cebu" required />
+            </div>
+
+            <!-- Step 2 -->
+            <div class="form-step" data-step="2">
+              <h3>Interests</h3>
+              <p class="step-subtext">Tell us what you are drawn to.</p>
+
+              <label>What are your top 3 interests?</label>
+              <textarea id="interests" placeholder="e.g., marketing, fashion, entertainment" required></textarea>
+
+              <label>What industries are you curious about?</label>
+              <textarea id="industries" placeholder="e.g., media, FMCG, tech, advertising" required></textarea>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="form-step" data-step="3">
+              <h3>Strengths & Growth</h3>
+              <p class="step-subtext">What are you already good at, and what do you want to improve?</p>
+
+              <label>What are your top strengths?</label>
+              <textarea id="strengths" placeholder="e.g., research, communication, presentation" required></textarea>
+
+              <label>What skills do you want to improve?</label>
+              <textarea id="skillsToImprove" placeholder="e.g., public speaking, analytics, problem solving" required></textarea>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="form-step" data-step="4">
+              <h3>Experience</h3>
+              <p class="step-subtext">This helps us understand your starting point.</p>
+
+              <label>What orgs, internships, or projects have you joined?</label>
+              <textarea id="experience" placeholder="e.g., student publication, volunteer work, internship" required></textarea>
+
+              <label>What kind of experience do you feel you’re missing?</label>
+              <textarea id="experienceGaps" placeholder="e.g., real client work, events, leadership, sales exposure" required></textarea>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="form-step" data-step="5">
+              <h3>Goals</h3>
+              <p class="step-subtext">This helps us map your direction.</p>
+
+              <label>What do you want to achieve in the next 1–2 years?</label>
+              <textarea id="shortTermGoals" placeholder="e.g., get internships, build portfolio, take leadership roles" required></textarea>
+
+              <label>What is your long-term goal? <span class="optional">(If unsure, you can say “undecided”)</span></label>
+              <textarea id="longTermGoals" placeholder="e.g., become a brand strategist, build a startup, still undecided" required></textarea>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="form-step" data-step="6">
+              <h3>A Few More Things</h3>
+              <p class="step-subtext">These are optional, but they can help personalize your report more.</p>
+
+              <label>Paste your CV / resume / background here <span class="optional">(optional)</span></label>
+              <textarea id="cvText" placeholder="Paste your CV, resume, or anything about yourself here"></textarea>
+
+              <label>Is there anything else you want us to consider? <span class="optional">(optional)</span></label>
+              <textarea id="extraInfo" placeholder="Add anything that was not asked but matters to your goals"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="prevBtn" class="secondary-btn hidden">Back</button>
+              <button type="button" id="nextBtn" class="primary-btn">Next</button>
+              <button type="submit" id="generateBtn" class="primary-btn hidden">Generate Report</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- LOADING -->
+      <section id="loadingSection" class="page hidden">
+        <div class="loading-card">
+          <div class="spinner"></div>
+          <h3>Generating your Career Direction Report...</h3>
+          <p>Matching your profile to realistic opportunities and next steps.</p>
+        </div>
+      </section>
+
+      <!-- RESULTS -->
+      <section id="resultsSection" class="page hidden">
+        <div class="results-card">
+          <div class="results-top">
+            <div>
+              <div class="pill">Career Direction Report</div>
+              <h2 id="reportName">Your Career Direction Report</h2>
+            </div>
+            <button id="copyBtn" class="ghost-btn">Copy Results</button>
+          </div>
+
+          <div class="report-block">
+            <h3>PERSONALIZED INSIGHT SUMMARY</h3>
+            <p id="insightSummary"></p>
+          </div>
+
+          <div class="report-block">
+            <h3>INTERNSHIP OPPORTUNITIES (WHERE TO START)</h3>
+            <p class="section-intro" id="internshipIntro"></p>
+            <div id="internshipList"></div>
+          </div>
+
+          <div class="report-block">
+            <h3>ORGANIZATIONS TO BUILD YOUR EDGE</h3>
+            <p class="section-intro" id="orgIntro"></p>
+            <div id="orgList"></div>
+          </div>
+
+          <div class="report-block">
+            <h3>PROJECTS THAT BUILD REAL EXPERIENCE</h3>
+            <p class="section-intro" id="projectIntro"></p>
+            <div id="projectList"></div>
+          </div>
+
+          <div class="report-block">
+            <h3>PERSONALIZED ROADMAP</h3>
+            <p class="section-intro">This roadmap is designed to move you from school-based experience to real-world exposure to industry positioning.</p>
+            <div class="roadmap-grid">
+              <div class="roadmap-card">
+                <h4>SHORT TERM (0–2 YEARS)</h4>
+                <ul id="shortRoadmap"></ul>
+              </div>
+              <div class="roadmap-card">
+                <h4>MEDIUM TERM (3–5 YEARS)</h4>
+                <ul id="mediumRoadmap"></ul>
+              </div>
+              <div class="roadmap-card">
+                <h4>LONG TERM DIRECTION</h4>
+                <ul id="longRoadmap"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-block">
+            <h3>NEXT STEP (DO THIS NOW)</h3>
+            <ul id="nextSteps"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
